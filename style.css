@@ -1,0 +1,278 @@
+body{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #2c3e50;
+  font-family: 'Manrope', sans-serif;
+}
+
+.container{
+  width: 400px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 1);
+}
+
+.info-all h3{
+  margin-top: 5px;
+  text-align: center;
+  width: 100%;
+  height: 10px;
+  color: #03a9f4;
+}
+
+/* text design */
+.info{
+  display: flex;
+  width: 100%;
+  height: 33%;
+}
+
+
+.info .info-text{
+  width: calc(100% - 200px);
+  text-align: center;
+  margin: 10px;
+  color: #999;
+}
+/* The circle design */
+.box{
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+}
+.box .percent{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.box .percent svg{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.box .percent svg circle{
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 10;
+  stroke: #000;
+  transform: translate(5px, 5px);
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  /*stroke-linecap: round;*/
+}
+.box .percent svg circle:nth-child(1){
+  stroke-dashoffset: 0;
+  stroke:  #b3e6fe;
+}
+
+.box .percent svg circle:nth-child(2){
+  stroke-dashoffset: calc(440 - (440 * 66) / 100);
+  stroke: #03a9f4;
+}
+.box .percent .number{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+}
+.box .percent .number h2{
+  font-size: 48px;
+}
+.box .percent .number h2 span{
+  font-size: 24px;
+}
+
+/* Achievement Space */
+.Achievement{
+  width: 100%;
+  height: 66%;
+  display: flex;
+}
+
+/* Progress Bar */
+.progress{
+  margin: auto;
+  width: 70%;
+  height: 100%;
+}
+
+.progress h1{
+  text-align: center;
+}
+.progress:hover li{
+  opacity: 0.3;
+}
+.progress li:hover{
+  opacity: 1;
+}
+li{
+  font-weight: 'Roboto Slab';
+  position: relative;
+  list-style: none;
+  margin: 53px 10px 50px -20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+li:before{
+  content: "43%";
+  content: attr(data-before1);
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background-color: #b3e6fe;
+  border-radius: 1000px;
+}
+
+li:after{
+  content: '';
+  content: attr(data-before);
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 0;
+  height: 18px;
+  background-color: #03a9f4;
+  border-radius: 1000px;
+  animation-duration: .7s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+li.kcal:after{
+  animation-name: kcal;
+}
+
+@keyframes kcal {
+  to {
+    width: 100%;
+  }
+}
+
+li.steps:after{
+  animation-name: steps;
+}
+
+@keyframes steps {
+  to {
+    width: 43.20%;
+  }
+}
+
+li.km:after{
+  animation-name: km;
+}
+
+@keyframes km {
+  to {
+    width: 100%;
+  }
+}
+
+/* Boutton animation */
+  /* Bouttons space */
+.buttons{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 10px;
+}
+.button{
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  border: 2px solid #03a9f4;;
+  color: #03a9f4;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  line-height: 56px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  background-color: transparent;
+  outline: none;
+  transition: all ease 0.5s;
+  margin-bottom: 10px;
+}
+.button:hover{
+  background-color: #03a9f4;
+  color: #fff;
+}
+.active{
+  font-size: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border-left-color: transparent;
+  animation: rotate 1.4s ease 0.5s infinite;
+}
+@keyframes rotate{
+  0%{
+    transform: rotate(360deg);
+  }
+}
+/* Animation Of 1st and 2nd Button */
+.success{
+  position: relative;
+  background-color: #fff;
+  animation: bounce .3s ease-in;
+}
+@keyframes bounce{
+  0%{
+    transform: scale(0.9);
+  }
+}
+.success:before{
+  content: '';
+  color: green;
+  position: absolute;
+  background: url(done.svg) no-repeat; /*Check Solid is fontawesome icon */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 31px;
+  height: 31px;
+  line-height: 31px;
+  top: 8px;
+}
+/* Animation of 3th button */
+.failed{
+  position: relative;
+  background-color: #fff;
+  animation: bounce .3s ease-in;
+}
+
+.failed:before{
+  content: '';
+  position: absolute;
+  background: url(https://upload.wikimedia.org/wikipedia/en/b/ba/Red_x.svg) no-repeat; /* Check Solid is fontawesome icon */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 31px;
+  height: 31px;
+  line-height: 31px;
+  top: 8px;
+}
